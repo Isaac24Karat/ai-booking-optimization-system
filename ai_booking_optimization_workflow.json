@@ -1,0 +1,175 @@
+{
+  "name": "AI Booking Optimization and Smart Escalation System",
+  "nodes": [
+    {
+      "name": "Incoming Inquiry (Webhook)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "notes": "Receives incoming booking or support inquiry."
+    },
+    {
+      "name": "Classify Intent",
+      "type": "n8n-nodes-base.openai",
+      "typeVersion": 2,
+      "position": [
+        500,
+        300
+      ],
+      "notes": "Classifies whether the inquiry is booking, support, or FAQ."
+    },
+    {
+      "name": "CRM Lookup (Customer Data)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        750,
+        300
+      ],
+      "notes": "Retrieves user profile or booking history from CRM."
+    },
+    {
+      "name": "AI Agent - Handle Simple Case",
+      "type": "n8n-nodes-base.openai",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        300
+      ],
+      "notes": "If possible, AI agent crafts a direct answer to booking or FAQ."
+    },
+    {
+      "name": "Confidence Score Check",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        300
+      ],
+      "notes": "Checks AI confidence score. If low, escalates to human."
+    },
+    {
+      "name": "Human Agent Escalation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        500
+      ],
+      "notes": "Escalates case to live support if AI is unsure."
+    },
+    {
+      "name": "Send Confirmation or Answer",
+      "type": "n8n-nodes-base.httpResponse",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        300
+      ],
+      "notes": "Delivers the booking confirmation or support answer."
+    },
+    {
+      "name": "Log Metrics",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1750,
+        300
+      ],
+      "notes": "Logs interaction type, outcome, and resolution time for analysis."
+    }
+  ],
+  "connections": {
+    "Incoming Inquiry (Webhook)": {
+      "main": [
+        [
+          {
+            "node": "Classify Intent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Intent": {
+      "main": [
+        [
+          {
+            "node": "CRM Lookup (Customer Data)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CRM Lookup (Customer Data)": {
+      "main": [
+        [
+          {
+            "node": "AI Agent - Handle Simple Case",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Handle Simple Case": {
+      "main": [
+        [
+          {
+            "node": "Confidence Score Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confidence Score Check": {
+      "main": [
+        [
+          {
+            "node": "Send Confirmation or Answer",
+            "type": "main",
+            "index": 0,
+            "conditions": {
+              "true": []
+            }
+          },
+          {
+            "node": "Human Agent Escalation",
+            "type": "main",
+            "index": 0,
+            "conditions": {
+              "false": []
+            }
+          }
+        ]
+      ]
+    },
+    "Human Agent Escalation": {
+      "main": [
+        [
+          {
+            "node": "Send Confirmation or Answer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Confirmation or Answer": {
+      "main": [
+        [
+          {
+            "node": "Log Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
