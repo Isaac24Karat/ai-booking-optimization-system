@@ -53,4 +53,13 @@ This system shows how a carefully designed AI agent can enhance customer experie
 It proves real-world AI deployment with measurable business value, aligned with Alps2Alps goals.
 
 ---
+
+## Future Work
+
+- Add multilingual support for AI booking conversations
+- Introduce dynamic confidence threshold adjustment based on live user feedback
+- Expand CRM integration to include loyalty program status and upsell recommendations
+- Build a predictive booking delay detection agent using live traffic and weather data
+
+---
 *Demo built for AI Agent Implementation Manager portfolio presentation.*
