@@ -1,5 +1,12 @@
 # AI Booking Optimization and Smart Agent Escalation System
 
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Built With](https://img.shields.io/badge/built%20with-n8n%20%7C%20CRM%20API%20%7C%20OpenAI-blue)
+![Focus](https://img.shields.io/badge/focus-Conversion%20%7C%20Booking%20Automation-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+![Last Update](https://img.shields.io/github/last-commit/Isaac24Karat/ai-booking-optimization-system)
+
+
 > **Project Pitch:**  
 > I built an AI-driven system that optimizes online booking flows and customer support for travel transfers.  
 > The system intelligently guides users through the booking process, auto-answers frequent questions, and escalates complex cases to human agents — using real-time confidence scoring and CRM integration to maximize speed and satisfaction.
