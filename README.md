@@ -34,6 +34,13 @@ This system uses AI to route customers through the booking process with CRM inte
 
 ![Diagram](./diagram.png)
 
+This diagram shows how the booking optimization flow orchestrates various services:
+
+- 🎯 **AI Decision Engine**: Guides the user based on preferences, timing, and historical booking data.
+- 🧠 **Fallback System**: Nudges users with alternate suggestions (routes, time slots) to reduce drop-off.
+- 🔄 **CRM Sync**: All actions update in real-time with the CRM, enabling personalized follow-ups.
+- 📅 **Event Logging**: Tracks decision points to improve conversion analysis and A/B testing.
+
 
 
 ## Technologies Used
