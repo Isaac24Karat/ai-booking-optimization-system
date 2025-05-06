@@ -12,6 +12,7 @@ This repository contains an AI-powered booking assistant built using n8n, CRM in
 - Personalize user experience using CRM history
 - Log key interaction data for A/B testing and flow improvement
 - Modularize the system for future extensibility (e.g., loyalty programs, dynamic pricing)
+- Make the booking assistant modular and easy to extend
 
 ---
 
