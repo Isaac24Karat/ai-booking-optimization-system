@@ -28,6 +28,13 @@
 - Uses A/B testing to continuously optimize AI messaging and flow efficiency
 
 ---
+## 📊 Booking Optimization Flow Diagram
+
+This system uses AI to route customers through the booking process with CRM integration, fallback nudges, and event logging:
+
+![Diagram](./diagram.png)
+
+
 
 ## Technologies Used
 - OpenAI (chat completion and classification)
