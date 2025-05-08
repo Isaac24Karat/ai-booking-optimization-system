@@ -26,4 +26,11 @@ This document outlines key user actions logged during the booking/prompt refinem
 
 ---
 
+## 🖼️ Visual Logging Flow
+
+![User Interaction Logging Flow](../user-interaction-logging-flow.png)
+
+*A flowchart of how user inputs and AI responses are logged in real-time for analytics and optimization.*
+
+
 _Last updated: May 2025_ 
