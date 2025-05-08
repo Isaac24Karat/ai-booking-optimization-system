@@ -27,4 +27,3 @@ This document outlines key user actions logged during the booking/prompt refinem
 ---
 
 _Last updated: May 2025_
-
